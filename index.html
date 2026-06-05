@@ -14,8 +14,30 @@
         }
 
         body{
-            background:#FFF5F8;
             color:#4A0033;
+            background: linear-gradient(
+                -45deg,
+                #fff0f6,
+                #ffd6e7,
+                #ffb3d1,
+                #f48fb1,
+                #ff85c2,
+                #ffc2dc
+            );
+            background-size:400% 400%;
+            animation:radiantPink 15s ease infinite;
+        }
+
+        @keyframes radiantPink{
+            0%{
+                background-position:0% 50%;
+            }
+            50%{
+                background-position:100% 50%;
+            }
+            100%{
+                background-position:0% 50%;
+            }
         }
 
         header{
@@ -23,7 +45,8 @@
             justify-content:space-between;
             align-items:center;
             padding:15px 40px;
-            background:#E91E63;
+            background:rgba(233,30,99,0.85);
+            backdrop-filter:blur(10px);
             color:white;
         }
 
@@ -52,10 +75,12 @@
         .title p{
             margin-top:5px;
             font-style:italic;
+            letter-spacing:1px;
         }
 
         nav{
-            background:#F48FB1;
+            background:rgba(244,143,177,0.8);
+            backdrop-filter:blur(10px);
             text-align:center;
             padding:15px;
         }
@@ -65,11 +90,16 @@
             text-decoration:none;
             margin:0 15px;
             font-weight:bold;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#4A0033;
         }
 
         .hero{
             text-align:center;
-            padding:100px 20px;
+            padding:120px 20px;
         }
 
         .hero h2{
@@ -88,10 +118,11 @@
         .section{
             max-width:1000px;
             margin:40px auto;
-            background:white;
+            background:rgba(255,255,255,0.88);
+            backdrop-filter:blur(12px);
             padding:40px;
             border-radius:15px;
-            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+            box-shadow:0 4px 15px rgba(0,0,0,0.08);
         }
 
         .section h2{
@@ -112,16 +143,22 @@
         }
 
         .card{
-            background:#FFCDD2;
+            background:#FFE4EC;
             padding:20px;
             margin:10px;
             border-radius:10px;
             width:200px;
             text-align:center;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
         }
 
         footer{
-            background:#E91E63;
+            background:rgba(233,30,99,0.85);
+            backdrop-filter:blur(10px);
             color:white;
             text-align:center;
             padding:20px;
@@ -143,6 +180,10 @@
                 display:block;
                 margin:10px;
             }
+
+            .card{
+                width:100%;
+            }
         }
     </style>
 </head>
@@ -150,7 +191,6 @@
 
 <header>
 
-    <!-- Replace with Club Logo -->
     <div class="logo">
         CLUB<br>LOGO
     </div>
@@ -160,7 +200,6 @@
         <p>Redefining Change</p>
     </div>
 
-    <!-- Replace with District Logo -->
     <div class="logo">
         DISTRICT<br>3234
     </div>
