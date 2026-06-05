@@ -1,198 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rotaract Club of Women's Christian College</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotaract Club of Women's Christian College</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: "Didot", "Linotype Didot", "Bodoni MT", "Didone Roman", serif;
-        }
+<style>
 
-        body{
-            color:#4A0033;
-            background: linear-gradient(
-                -45deg,
-                #fff0f6,
-                #ffd6e7,
-                #ffb3d1,
-                #f48fb1,
-                #ff85c2,
-                #ffc2dc
-            );
-            background-size:400% 400%;
-            animation:radiantPink 15s ease infinite;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Didot","Linotype Didot","Bodoni MT","Didone Roman",serif;
+}
 
-        @keyframes radiantPink{
-            0%{
-                background-position:0% 50%;
-            }
-            50%{
-                background-position:100% 50%;
-            }
-            100%{
-                background-position:0% 50%;
-            }
-        }
+body{
+    color:#4A0033;
+    background:linear-gradient(
+        -45deg,
+        #fff0f6,
+        #ffd6e7,
+        #ffb3d1,
+        #f48fb1,
+        #ff85c2,
+        #ffc2dc
+    );
+    background-size:400% 400%;
+    animation:radiantPink 15s ease infinite;
+}
 
-        header{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:15px 40px;
-            background:rgba(233,30,99,0.85);
-            backdrop-filter:blur(10px);
-            color:white;
-        }
+@keyframes radiantPink{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        .logo{
-            width:80px;
-            height:80px;
-            border-radius:50%;
-            background:white;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:#E91E63;
-            font-weight:bold;
-            text-align:center;
-            font-size:12px;
-        }
+header{
+    display:grid;
+    grid-template-columns:180px 1fr 180px;
+    align-items:center;
+    padding:15px 30px;
+    background:rgba(233,30,99,0.9);
+    color:white;
+}
 
-        .title{
-            text-align:center;
-        }
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-        .title h1{
-            font-size:2rem;
-        }
+.logo img{
+    max-height:90px;
+    max-width:160px;
+    width:auto;
+    height:auto;
+    display:block;
+}
 
-        .title p{
-            margin-top:5px;
-            font-style:italic;
-            letter-spacing:1px;
-        }
+.title{
+    text-align:center;
+}
 
-        nav{
-            background:rgba(244,143,177,0.8);
-            backdrop-filter:blur(10px);
-            text-align:center;
-            padding:15px;
-        }
+.title h1{
+    font-size:2.8rem;
+    margin-bottom:8px;
+}
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:0 15px;
-            font-weight:bold;
-            transition:0.3s;
-        }
+.title p{
+    font-size:1.2rem;
+    font-style:italic;
+    letter-spacing:1px;
+}
 
-        nav a:hover{
-            color:#4A0033;
-        }
+nav{
+    background:rgba(244,143,177,0.85);
+    text-align:center;
+    padding:15px;
+}
 
-        .hero{
-            text-align:center;
-            padding:120px 20px;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+    transition:0.3s;
+}
 
-        .hero h2{
-            font-size:3rem;
-            color:#E91E63;
-            margin-bottom:15px;
-        }
+nav a:hover{
+    color:#4A0033;
+}
 
-        .hero p{
-            font-size:1.2rem;
-            max-width:700px;
-            margin:auto;
-            line-height:1.8;
-        }
+.hero{
+    text-align:center;
+    padding:120px 20px;
+}
 
-        .section{
-            max-width:1000px;
-            margin:40px auto;
-            background:rgba(255,255,255,0.88);
-            backdrop-filter:blur(12px);
-            padding:40px;
-            border-radius:15px;
-            box-shadow:0 4px 15px rgba(0,0,0,0.08);
-        }
+.hero h2{
+    font-size:3rem;
+    color:#E91E63;
+    margin-bottom:20px;
+}
 
-        .section h2{
-            color:#E91E63;
-            margin-bottom:20px;
-        }
+.hero p{
+    font-size:1.2rem;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
 
-        .section p{
-            line-height:1.8;
-            text-align:justify;
-        }
+.section{
+    max-width:1000px;
+    margin:40px auto;
+    background:rgba(255,255,255,0.88);
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
 
-        .highlights{
-            display:flex;
-            justify-content:space-around;
-            flex-wrap:wrap;
-            margin-top:20px;
-        }
+.section h2{
+    color:#E91E63;
+    margin-bottom:20px;
+}
 
-        .card{
-            background:#FFE4EC;
-            padding:20px;
-            margin:10px;
-            border-radius:10px;
-            width:200px;
-            text-align:center;
-            transition:0.3s;
-        }
+.section p{
+    line-height:1.8;
+    text-align:justify;
+}
 
-        .card:hover{
-            transform:translateY(-5px);
-        }
+.highlights{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
 
-        footer{
-            background:rgba(233,30,99,0.85);
-            backdrop-filter:blur(10px);
-            color:white;
-            text-align:center;
-            padding:20px;
-            margin-top:40px;
-        }
+.card{
+    background:#FFE4EC;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+    width:200px;
+    text-align:center;
+    transition:0.3s;
+}
 
-        @media(max-width:768px){
+.card:hover{
+    transform:translateY(-5px);
+}
 
-            header{
-                flex-direction:column;
-                gap:15px;
-            }
+footer{
+    background:rgba(233,30,99,0.9);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
 
-            .hero h2{
-                font-size:2rem;
-            }
+@media(max-width:768px){
 
-            nav a{
-                display:block;
-                margin:10px;
-            }
+    header{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
 
-            .card{
-                width:100%;
-            }
-        }
-    </style>
+    .title h1{
+        font-size:1.8rem;
+    }
+
+    .hero h2{
+        font-size:2rem;
+    }
+
+    nav a{
+        display:block;
+        margin:10px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .logo img{
+        max-height:80px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
 
     <div class="logo">
-        <img src="club logo.png" alt="club logo">
+        <img src="club-logo.png" alt="Club Logo">
     </div>
 
     <div class="title">
@@ -201,7 +204,7 @@
     </div>
 
     <div class="logo">
-        <img src="district logo.png" alt="district logo">
+        <img src="district-logo.png" alt="District Logo">
     </div>
 
 </header>
@@ -219,34 +222,39 @@
     <h2>Welcome to RAC WCC</h2>
 
     <p>
-        Empowering young leaders through service, fellowship,
-        and professional development since 1995.
+        Empowering young leaders through service,
+        fellowship and professional development
+        since 10 May 1995.
     </p>
 </section>
 
 <section class="section">
+
     <h2>About Us</h2>
 
     <p>
-        The Rotaract Club of Women's Christian College is a vibrant
-        community of student leaders dedicated to creating positive
-        change through service and leadership. Guided by the values
-        of Rotary International, our members work together to build
-        meaningful impact within the college and the wider community.
+        The Rotaract Club of Women's Christian College is a dynamic
+        community of student leaders committed to service, leadership,
+        fellowship and personal growth. Guided by Rotary values, the
+        club strives to create meaningful and sustainable impact both
+        within the college campus and in the wider community.
     </p>
+
 </section>
 
 <section class="section">
+
     <h2>Our Legacy</h2>
 
     <p>
         Chartered on 10 May 1995, the Rotaract Club of Women's
-        Christian College has continued to nurture generations
-        of changemakers. Through social initiatives, community
-        outreach programs, leadership development activities,
-        and collaborative projects, the club has established
-        a lasting legacy of service and excellence.
+        Christian College has proudly nurtured generations of young
+        changemakers. Through social service initiatives, leadership
+        development programs, community outreach projects and
+        collaborative partnerships, the club continues to uphold a
+        legacy of excellence and service above self.
     </p>
+
 </section>
 
 <section class="section">
@@ -281,8 +289,7 @@
 
 <footer>
     <p>
-        © 2026 Rotaract Club of Women's Christian College |
-        District 3234
+        © 2026 Rotaract Club of Women's Christian College | District 3234
     </p>
 </footer>
 
