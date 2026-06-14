@@ -98,13 +98,18 @@
 
   /* Nav */
 nav{
-    background:rgba(253,234,243,.72);
+    position:fixed;
+    top:118px; /* place directly below header */
+    left:0;
+    width:100%;
+
+    background:rgba(253,234,243,.92);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
+
     border-bottom:1px solid var(--line);
-    position:sticky;
-    top:118px;
-    z-index:40;
+
+    z-index:999;
 }
   .nav-inner{
     max-width:1200px;margin:0 auto;
