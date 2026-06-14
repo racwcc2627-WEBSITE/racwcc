@@ -14,34 +14,82 @@
     font-family:"Didot","Linotype Didot","Bodoni MT","Didone Roman",serif;
 }
 
-body{
-    color:#4A0033;
-    background:linear-gradient(
-        -45deg,
-        #fff0f6,
-        #ffd6e7,
-        #ffb3d1,
-        #f48fb1,
-        #ff85c2,
-        #ffc2dc
-    );
-    background-size:400% 400%;
-    animation:radiantPink 15s ease infinite;
+html{
+    scroll-behavior:smooth;
 }
 
-@keyframes radiantPink{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+body{
+    color:#5A4450;
+    background:linear-gradient(
+        135deg,
+        #fffafc,
+        #fceef4,
+        #f8e6ee,
+        #fdf7f9
+    );
+    min-height:100vh;
+    overflow-x:hidden;
 }
+
+/* Floating Background Blobs */
+
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:0.25;
+    z-index:-1;
+}
+
+.blob1{
+    width:300px;
+    height:300px;
+    background:#ffb6c1;
+    top:10%;
+    left:-100px;
+    animation:floatBlob 18s infinite ease-in-out;
+}
+
+.blob2{
+    width:250px;
+    height:250px;
+    background:#ffd6e7;
+    top:50%;
+    right:-80px;
+    animation:floatBlob 22s infinite ease-in-out reverse;
+}
+
+.blob3{
+    width:220px;
+    height:220px;
+    background:#ffe6f0;
+    bottom:0;
+    left:40%;
+    animation:floatBlob 20s infinite ease-in-out;
+}
+
+@keyframes floatBlob{
+    0%,100%{
+        transform:translateY(0) translateX(0);
+    }
+    50%{
+        transform:translateY(-60px) translateX(30px);
+    }
+}
+
+/* Header */
 
 header{
     display:grid;
     grid-template-columns:150px 1fr 150px;
     align-items:center;
     padding:20px 25px;
-    background:rgba(233,30,99,0.9);
+    background:rgba(199,107,152,0.85);
+    backdrop-filter:blur(12px);
     color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
@@ -51,10 +99,18 @@ header{
 }
 
 .logo img{
-    max-height:200px;
-    max-width:400px;
+    max-height:120px;
     width:auto;
-    height:auto;
+    animation:logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 .title{
@@ -62,43 +118,92 @@ header{
 }
 
 .title h1{
-    font-size:2.3rem;
+    font-size:2.2rem;
     margin-bottom:8px;
-    line-height:1.2;
 }
 
 .title p{
-    font-size:1.2rem;
+    font-size:1.1rem;
     font-style:italic;
+    letter-spacing:1px;
 }
 
+/* Navigation */
+
 nav{
-    background:rgba(244,143,177,0.85);
+    background:rgba(230,197,213,0.85);
+    backdrop-filter:blur(10px);
     text-align:center;
     padding:15px;
 }
 
 nav a{
-    color:white;
+    position:relative;
+    color:#5A4450;
     text-decoration:none;
-    margin:0 15px;
+    margin:0 18px;
     font-weight:bold;
-    transition:0.3s;
 }
 
-nav a:hover{
-    color:#4A0033;
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#B35F8D;
+    left:0;
+    bottom:-5px;
+    transition:0.4s;
 }
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* Hero */
 
 .hero{
     text-align:center;
-    padding:120px 20px;
+    padding:140px 20px;
+    animation:heroReveal 1.5s ease;
+}
+
+@keyframes heroReveal{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .hero h2{
-    font-size:3rem;
-    color:#E91E63;
+    font-size:3.5rem;
     margin-bottom:20px;
+
+    background:linear-gradient(
+        90deg,
+        #B35F8D,
+        #D88BB0,
+        #B35F8D
+    );
+
+    background-size:200%;
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:textShine 6s linear infinite;
+}
+
+@keyframes textShine{
+    from{
+        background-position:0%;
+    }
+    to{
+        background-position:200%;
+    }
 }
 
 .hero p{
@@ -108,24 +213,116 @@ nav a:hover{
     line-height:1.8;
 }
 
+/* Sections */
+
 .section{
     max-width:1000px;
-    margin:40px auto;
-    background:rgba(255,255,255,0.88);
+    margin:50px auto;
     padding:40px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.45);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.5);
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.06);
+
+    transition:0.5s;
+}
+
+.section:hover{
+    transform:translateY(-5px);
 }
 
 .section h2{
-    color:#E91E63;
+    color:#B35F8D;
     margin-bottom:20px;
 }
 
 .section p{
-    line-height:1.8;
+    line-height:1.9;
     text-align:justify;
 }
+
+    /* President Message */
+
+.president-home{
+    max-width:1000px;
+}
+
+.president-header{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+    padding-bottom:20px;
+    border-bottom:1px solid rgba(179,95,141,0.2);
+}
+
+.president-header img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(255,255,255,0.8);
+    box-shadow:0 10px 25px rgba(179,95,141,0.15);
+    animation:presidentFloat 5s ease-in-out infinite;
+}
+
+@keyframes presidentFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.president-header h4{
+    color:#B35F8D;
+    margin-top:5px;
+}
+
+.designation{
+    color:#777;
+    font-size:0.95rem;
+}
+
+.message-content p{
+    line-height:2;
+}
+
+@media(max-width:768px){
+
+    .president-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .president-header img{
+        width:120px;
+        height:120px;
+    }
+}
+
+/* Scroll Reveal */
+
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Highlights */
 
 .highlights{
     display:flex;
@@ -135,31 +332,109 @@ nav a:hover{
 }
 
 .card{
-    background:#FFE4EC;
-    padding:20px;
+    width:220px;
+    padding:25px;
     margin:10px;
-    border-radius:10px;
-    width:200px;
+
+    background:rgba(255,255,255,0.6);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,0.5);
+
     text-align:center;
-    transition:0.3s;
+
+    transition:0.4s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-10px) scale(1.04);
+
+    box-shadow:
+    0 15px 30px rgba(179,95,141,0.18);
 }
 
 .card h3{
-    color:#E91E63;
+    color:#B35F8D;
     margin-bottom:10px;
+    font-size:1.6rem;
 }
 
+/* President Message */
+
+.president-home{
+    max-width:1000px;
+}
+
+.president-header{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+    padding-bottom:20px;
+    border-bottom:1px solid rgba(179,95,141,0.2);
+}
+
+.president-header img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid rgba(255,255,255,0.8);
+    box-shadow:0 10px 25px rgba(179,95,141,0.15);
+    animation:presidentFloat 5s ease-in-out infinite;
+}
+
+@keyframes presidentFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.president-header h4{
+    color:#B35F8D;
+    margin-top:5px;
+}
+
+.designation{
+    color:#777;
+    font-size:0.95rem;
+}
+
+.message-content p{
+    line-height:2;
+}
+
+@media(max-width:768px){
+
+    .president-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .president-header img{
+        width:120px;
+        height:120px;
+    }
+}
+  
+
+/* Footer */
+
 footer{
-    background:rgba(233,30,99,0.9);
+    background:rgba(199,107,152,0.9);
     color:white;
     text-align:center;
-    padding:20px;
-    margin-top:40px;
+    padding:25px;
+    margin-top:50px;
 }
+
+/* Responsive */
 
 @media(max-width:768px){
 
@@ -170,16 +445,16 @@ footer{
     }
 
     .title h1{
-        font-size:1.8rem;
+        font-size:1.7rem;
     }
 
     .hero h2{
-        font-size:2rem;
+        font-size:2.3rem;
     }
 
     nav a{
         display:block;
-        margin:10px;
+        margin:12px;
     }
 
     .card{
@@ -195,6 +470,10 @@ footer{
 </head>
 
 <body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
 <header>
 
@@ -214,15 +493,15 @@ footer{
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">History</a>
-    <a href="#">Projects</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#legacy">History</a>
+    <a href="#highlights">Projects</a>
     <a href="#">Gallery</a>
     <a href="#">Contact</a>
 </nav>
 
-<section class="hero">
+<section class="hero" id="home">
     <h2>Welcome to RaC WCC</h2>
 
     <p>
@@ -232,21 +511,21 @@ footer{
     </p>
 </section>
 
-<section class="section">
+<section class="section reveal" id="about">
 
     <h2>About Us</h2>
 
     <p>
         The Rotaract Club of Women's Christian College is a dynamic
         community of student leaders committed to service, leadership,
-        fellowship and personal growth. Guided by Rotary values, the
-        club strives to create meaningful and sustainable impact both
-        within the college campus and in the wider community.
+        fellowship and personal growth. Guided by Rotary values,
+        the club strives to create meaningful and sustainable impact
+        both within the college campus and in the wider community.
     </p>
 
 </section>
 
-<section class="section">
+<section class="section reveal" id="legacy">
 
     <h2>Our Legacy</h2>
 
@@ -255,30 +534,30 @@ footer{
         Christian College has proudly nurtured generations of young
         changemakers. Through social service initiatives, leadership
         development programs, community outreach projects and
-        collaborative partnerships, the club continues to uphold a
-        legacy of excellence and service above self.
+        collaborative partnerships, the club continues to uphold
+        a legacy of excellence and service above self.
     </p>
 
 </section>
 
-<section class="section">
+<section class="section reveal" id="highlights">
 
     <h2>Highlights</h2>
 
     <div class="highlights">
 
         <div class="card">
-            <h3>1995</h3>
+            <h3 class="counter" data-target="1995">0</h3>
             <p>Chartered</p>
         </div>
 
         <div class="card">
-            <h3>District 3234</h3>
+            <h3>3234</h3>
             <p>Rotary District</p>
         </div>
 
         <div class="card">
-            <h3>30+</h3>
+            <h3 class="counter" data-target="30">0</h3>
             <p>Years of Service</p>
         </div>
 
@@ -296,6 +575,60 @@ footer{
         © 2026 Rotaract Club of Women's Christian College | District 3234
     </p>
 </footer>
+
+<script>
+
+/* Scroll Reveal */
+
+window.addEventListener('scroll',()=>{
+
+const reveals=document.querySelectorAll('.reveal');
+
+reveals.forEach(item=>{
+
+const top=item.getBoundingClientRect().top;
+
+if(top < window.innerHeight-100){
+item.classList.add('active');
+}
+
+});
+
+});
+
+/* Counter Animation */
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute('data-target');
+const current=+counter.innerText;
+
+const increment=Math.max(1,target/100);
+
+if(current<target){
+
+counter.innerText=Math.ceil(current+increment);
+
+setTimeout(update,20);
+
+}
+else{
+
+counter.innerText=target;
+
+}
+
+};
+
+update();
+
+});
+
+</script>
 
 </body>
 </html>
