@@ -73,14 +73,18 @@
     align-items:center;gap:20px;padding:22px 28px;
   }
   .logo{
-    width:74px;height:74px;border-radius:50%;
-    background:radial-gradient(circle at 30% 30%,#fff,#fde6f0 70%);
-    display:grid;place-items:center;
-    font-family:var(--serif);font-weight:700;font-size:2rem;
-    color:var(--rose-600);
-    box-shadow:0 10px 24px rgba(0,0,0,.12),inset 0 0 0 4px rgba(255,255,255,.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo img{
+    width:85px;
+    height:85px;
+    object-fit:contain;
     animation:floatY 5s ease-in-out infinite;
-  }
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,0.15));
+}
   @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
   .title{text-align:center}
   .title h1{
@@ -265,12 +269,28 @@
   .reveal.in{opacity:1;transform:translateY(0)}
 
   @media(max-width:720px){
-    .header-inner{grid-template-columns:60px 1fr;gap:14px;padding:18px 18px}
-    .header-inner .logo{width:54px;height:54px;font-size:1.5rem}
-    .title{text-align:left}
-    .header-inner > :last-child{display:none}
-    .card{padding:32px 24px}
-    .hero{padding:60px 16px 40px}
+  .header-inner{
+    grid-template-columns:70px 1fr 70px;
+    gap:10px;
+    padding:15px;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+}
+
+.title{
+    text-align:center;
+}
+
+.title h1{
+    font-size:1.2rem;
+}
+
+.tag{
+    font-size:0.65rem;
+}
   }
 </style>
 </head>
@@ -282,15 +302,22 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo" aria-label="Rotaract logo">R</div>
+
+    <div class="logo">
+      <img src="clublogo.png" alt="Rotaract Club Logo">
+    </div>
+
     <div class="title">
       <h1>Rotaract Club of Women's Christian College</h1>
       <div class="tag">Redefining Change · District 3234</div>
     </div>
-    <div></div>
+
+    <div class="logo">
+      <img src="Drlogo.png" alt="District 3234 Logo">
+    </div>
+
   </div>
 </header>
-
 <nav>
   <div class="nav-inner">
     <a href="#home">Home</a>
